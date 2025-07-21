@@ -28,7 +28,7 @@ output "s3_bucket_name" {
   value       = module.services.s3_bucket_name
 }
 
-output "iam_ec2_role_arn" {
-  description = "El ARN del rol IAM para instancias EC2."
-  value       = module.iam.ec2_s3_cloudwatch_ssm_role_arn
+output "iam_ec2_instance_profile_arn" { 
+  description = "El ARN del perfil de instancia IAM para las EC2." 
+  value       = module.iam.iam_ec2_instance_profile_arn
 }

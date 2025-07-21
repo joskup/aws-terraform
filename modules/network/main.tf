@@ -54,7 +54,6 @@ resource "aws_subnet" "private" {
 
 resource "aws_eip" "nat_gateway" {
   count = length(aws_subnet.public)
-  vpc   = true
 
   tags = {
     Name        = "${var.project_name}-${var.environment}-NAT-EIP-${count.index + 1}"

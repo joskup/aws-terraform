@@ -99,7 +99,7 @@ resource "aws_iam_role_policy_attachment" "ec2_s3_cloudwatch_ssm_attach" {
 
 resource "aws_iam_instance_profile" "ec2_s3_cloudwatch_ssm_profile" {
   name = "${var.project_name}-${var.environment}-EC2S3CloudWatchSSMProfile"
-  role = aws_iam_role.ec2_s3_cloudwatch_ssm_role.name
+  role = aws_iam_role.ec2_s3_cloudwatch_ssm_role.name # <-- Esto debe ser el .name del rol, no el .arn
 
   tags = {
     Name        = "${var.project_name}-${var.environment}-EC2S3CloudWatchSSMProfile"

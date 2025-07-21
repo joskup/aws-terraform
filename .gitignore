@@ -3,3 +3,5 @@
 *.tfstate.backup
 crash.log
 *.tfvars
+notes
+caleidos-keypair.pem

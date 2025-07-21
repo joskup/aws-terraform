@@ -31,10 +31,28 @@ variable "ec2_security_group_id" {
   type = string
 }
 
-variable "iam_ec2_role_arn" {
-  type = string
+variable "iam_instance_profile_name" {
+  description = "El nombre del perfil de instancia IAM para las EC2."
+  type        = string
 }
 
+# variable "key_pair_name" {
+#   type = string
+#   default     = "terraformkey"
+# }
+
 variable "key_pair_name" {
-  type = string
+  description = "Nombre del par de claves EC2 existente para SSH."
+  type        = string
+  default     = "terraformkey" # Solo el nombre del key pair en AWS
 }
+
+# variable "caleidos-keypair" {
+#   type = string
+#   default     = "caleidos-keypair"
+# }
+
+# variable "terraformkey_data" {
+#   type = string
+#   default     = "caleidos-keypair"
+# }

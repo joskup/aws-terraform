@@ -59,6 +59,6 @@ module "services" {
   vpc_id                    = module.network.vpc_id
   bastion_security_group_id = module.security.bastion_security_group_id
   ec2_security_group_id     = module.security.ec2_security_group_id
-  iam_ec2_role_arn          = module.iam.ec2_s3_cloudwatch_ssm_role_arn
+  iam_instance_profile_name = module.iam.iam_ec2_instance_profile_name
   key_pair_name             = var.key_pair_name
 }

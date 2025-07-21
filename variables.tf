@@ -1,7 +1,7 @@
 variable "aws_region" {
   description = "Región de AWS donde se desplegarán los recursos."
   type        = string
-  default     = "us-east-1" # Puedes cambiar a tu región preferida
+  default     = "us-east-1"
 }
 
 variable "project_name" {
@@ -17,7 +17,7 @@ variable "owner" {
 }
 
 variable "environment" {
-  description = "Entorno del despliegue (ej. Development, Staging, Production)."
+  description = "Development"
   type        = string
   default     = "Development"
 }
@@ -49,5 +49,5 @@ variable "availability_zones" {
 variable "key_pair_name" {
   description = "Nombre del par de claves EC2 existente para SSH."
   type        = string
-  default     = "caleidos-keypair" # Asegúrate de tener este keypair en tu cuenta AWS
+  default     = "terraformkey" # Asegúrate de tener este keypair en tu cuenta AWS
 }
