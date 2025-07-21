@@ -63,9 +63,9 @@ La instancia EC2 se encuentra en una subred privada y es accesible únicamente a
     ```
 
 2.  **Acceso SSH al Bastion Host:**
-    Asegúrate de tener la clave SSH privada (`caleidos-keypair.pem`) utilizada para la creación de las instancias.
+    Asegúrate de tener la clave SSH privada (`terraformkey.pem`) utilizada para la creación de las instancias.
     ```bash
-    ssh -i caleidos-keypair.pem ubuntu@<IP_PUBLICA_BASTION_HOST>
+    ssh -i terraformkey.pem  ec2-user@<IP_PUBLICA_BASTION_HOST>
     ```
     (Usa `ec2-user` si elegiste Amazon Linux 2 como AMI).
 
@@ -74,14 +74,14 @@ La instancia EC2 se encuentra en una subred privada y es accesible únicamente a
     * **Opción A: Reenvío de Agente SSH (Recomendado)**
         Desde tu máquina local, al conectarte al Bastion Host, usa la opción `-A`:
         ```bash
-        ssh -A -i caleidos-keypair.pem ubuntu@<IP_PUBLICA_BASTION_HOST>
+        ssh -A -i terraformkey.pem ec2-user@<IP_PUBLICA_BASTION_HOST>
         ```
         Una vez dentro del Bastion Host, conéctate a la instancia privada usando su IP privada (obtenida de `terraform output private_ec2_private_ip`):
         ```bash
-        ssh ubuntu@<IP_PRIVADA_EC2>
+        ssh ec2-user@<IP_PRIVADA_EC2>
         ```
     * **Opción B: Copiar la Clave Privada (Menos Seguro)**
-        Copia la clave privada (`caleidos-keypair.pem`) al Bastion Host y luego conéctate a la instancia privada. **Esta opción no es recomendada para entornos de producción.**
+        Copia la clave privada (`terraformkey.pem`) al Bastion Host y luego conéctate a la instancia privada. **Esta opción no es recomendada para entornos de producción.**
 
 ### 2. Acceso al Bucket S3
 
@@ -106,4 +106,4 @@ Confirma con `yes` cuando se te solicite.
 Todos los recursos importantes han sido etiquetados con los siguientes tags:
 * `Project`: `ACME`
 * `Owner`: `Caleidos-ManagedServices`
-* `Environment`: `Development` (puede ser una variable configurable para otros entornos)
+* `Environment`: `Development`
