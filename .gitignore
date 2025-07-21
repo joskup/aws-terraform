@@ -4,4 +4,9 @@
 crash.log
 *.tfvars
 notes
-caleidos-keypair.pem
+*.tfplan
+*terraform*
+*.tfignore
+*.terraform*
+*.tf*
+*.tfstate.d
